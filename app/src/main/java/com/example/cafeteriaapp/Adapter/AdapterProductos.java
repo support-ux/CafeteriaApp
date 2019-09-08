@@ -60,6 +60,7 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.MyVi
             descripcion = itemView.findViewById(R.id.txtDescripcion);
             precio = itemView.findViewById(R.id.txtPrecio);
 
+
         }
 
     }
