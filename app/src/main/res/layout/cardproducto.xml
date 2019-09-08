@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="165dp"
+        android:layout_height="169dp"
         android:layout_marginTop="8dp"
         android:background="@color/body">
 
@@ -75,12 +75,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:layout_marginTop="2dp"
                     android:id="@+id/btnAdd"
                     android:layout_width="80dp"
                     android:layout_height="40dp"
@@ -88,6 +90,7 @@
                     app:srcCompat="@android:drawable/ic_menu_add" />
 
                 <ImageView
+                    android:layout_marginTop="2dp"
                     android:id="@+id/btnView"
                     android:layout_width="80dp"
                     android:layout_height="40dp"
