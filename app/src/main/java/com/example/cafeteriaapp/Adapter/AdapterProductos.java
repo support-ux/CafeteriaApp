@@ -7,7 +7,6 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,10 +18,12 @@ import com.example.cafeteriaapp.R;
 
 import java.util.List;
 
-public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.MyViewHolder>{
+public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.MyViewHolder>
+implements View.OnClickListener{
 
     private Context mCtx;
     private List<Producto> productoList;
+    private View.OnClickListener listener;
 
     public AdapterProductos(List<Producto> productoList, Context context) {
         this.productoList = productoList;
@@ -34,6 +35,8 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.MyVi
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardproducto, parent, false);
+
+        view.setOnClickListener(this);
         return new MyViewHolder(view);
 
 
@@ -50,20 +53,32 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.MyVi
         Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
         holder.imgProducto.setImageBitmap(bitmap);
 
+        // Change Her!!
 
 
     }
-
     @Override
     public int getItemCount() {
         return productoList.size();
     }
 
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        if(listener!=null){
+            listener.onClick(view);
+        }
+    }
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView producto,descripcion,precio;
         ImageView imgProducto;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -71,6 +86,7 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.MyVi
             descripcion = itemView.findViewById(R.id.txtDescripcion);
             precio = itemView.findViewById(R.id.txtPrecio);
             imgProducto = itemView.findViewById(R.id.imgProducto);
+
 
 
         }

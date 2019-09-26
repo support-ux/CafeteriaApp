@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    tools:context=".Activitys.MenuActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -59,6 +59,23 @@
         app:layout_constraintStart_toEndOf="@+id/imgBebidas"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+    <ImageView
+        android:id="@+id/imgCarrito"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/animaboton3"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.033" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -88,15 +105,12 @@
         android:id="@+id/linearLayout2"
         android:layout_width="411dp"
         android:layout_height="43dp"
-        android:layout_marginTop="8dp"
         android:background="@color/head"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toStartOf="parent">
 
     </LinearLayout>
 
@@ -113,19 +127,18 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout2"
         app:layout_constraintVertical_bias="0.333" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="390dp"
-        android:layout_height="149dp"
-        android:layout_marginTop="28dp"
-        android:background="#F3F4F7"
-        app:layout_constraintEnd_toEndOf="@+id/imgAlimentos"
-        app:layout_constraintHorizontal_bias="0.566"
-        app:layout_constraintStart_toStartOf="@+id/imgBebidas"
-        app:layout_constraintTop_toBottomOf="@+id/imgAlimentos">
-
-    </androidx.cardview.widget.CardView>
-
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="Lista de Pedidos"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBebidas" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

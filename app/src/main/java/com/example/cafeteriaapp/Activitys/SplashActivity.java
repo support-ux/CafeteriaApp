@@ -1,10 +1,12 @@
-package com.example.cafeteriaapp;
+package com.example.cafeteriaapp.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.cafeteriaapp.R;
 
 public class SplashActivity extends AppCompatActivity {
     private final int DURACION_SPLASH = 3000; // 3 segundos

@@ -1,8 +1,9 @@
-package com.example.cafeteriaapp;
+package com.example.cafeteriaapp.Activitys;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ProgressBar;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.example.cafeteriaapp.Adapter.AdapterProductos;
 import com.example.cafeteriaapp.ApiClient.ApiGetDataProductos;
 import com.example.cafeteriaapp.ApiInterface.ApiInterfaceProductos;
 import com.example.cafeteriaapp.Entidades.Producto;
+import com.example.cafeteriaapp.R;
 
 import java.util.List;
 
@@ -28,7 +30,8 @@ public class ProductosActivity extends AppCompatActivity {
     private AdapterProductos adapterProductos;
     private ApiInterfaceProductos apiInterfaceProductos;
 
-    int id;
+    int id,idUsuario,idVenta;
+    String status;
 
 
     @Override
@@ -47,12 +50,17 @@ public class ProductosActivity extends AppCompatActivity {
             if(extras == null) {
                 newString= null;
             } else {
+                status = extras.getString("status");
                 id = extras.getInt("idC");
+                idVenta = extras.getInt("idVenta");
+                idUsuario= extras.getInt("ID");
             }
         } else {
             newString= (String) savedInstanceState.getSerializable("Id");
         }
         fetchProductos("producto", id);
+
+
     }
 
     private void fetchProductos(String type, int id) {
@@ -66,6 +74,34 @@ public class ProductosActivity extends AppCompatActivity {
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
                 listProducto = response.body();
                 adapterProductos = new AdapterProductos(listProducto, ProductosActivity.this);
+
+                adapterProductos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(ProductosActivity.this,AddActivity.class);
+                        String nombre,precio,descripcion,stock,img;
+                        int Id;
+                        Id=listProducto.get(recyclerView.getChildAdapterPosition(view)).getId();
+                        nombre=listProducto.get(recyclerView.getChildAdapterPosition(view)).getProducto();
+                        precio=listProducto.get(recyclerView.getChildAdapterPosition(view)).getPrecio();
+                        descripcion=listProducto.get(recyclerView.getChildAdapterPosition(view)).getDescripcion();
+                        stock= listProducto.get(recyclerView.getChildAdapterPosition(view)).getStock();
+                        img= listProducto.get(recyclerView.getChildAdapterPosition(view)).getFoto();
+
+                        intent.putExtra("status",status);
+                        intent.putExtra("idVenta",idVenta);
+                        intent.putExtra("ID",idUsuario);
+                        intent.putExtra("id",Id);
+                        intent.putExtra("nombre",nombre);
+                        intent.putExtra("precio",precio);
+                        intent.putExtra("descripcion",descripcion);
+                        intent.putExtra("stock",stock);
+                        intent.putExtra("img",img);
+
+                        startActivity(intent);
+
+                    }
+                });
                 recyclerView.setAdapter(adapterProductos);
                 adapterProductos.notifyDataSetChanged();
             }
