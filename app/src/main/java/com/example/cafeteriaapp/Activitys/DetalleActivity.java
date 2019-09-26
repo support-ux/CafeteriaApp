@@ -57,6 +57,8 @@ public class DetalleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
 
+
+
         statuspedido=0;
 
 
@@ -103,7 +105,7 @@ public class DetalleActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapterListPedidos);
         txtTotalPagar.setText("$. "+total);
-        Toast.makeText(this, "idUsuario "+idUsuario, Toast.LENGTH_SHORT).show();
+
 
 
         adapterListPedidos.setOnClickListener(new View.OnClickListener() {

@@ -13,7 +13,6 @@ import com.example.cafeteriaapp.R;
 public class MenuActivity extends AppCompatActivity {
 ImageView opc1,opc2,opc3;
     int idUsuario;
-    int idUsuario2;
     int idVenta=0;
     String status;
     @Override
@@ -44,8 +43,6 @@ ImageView opc1,opc2,opc3;
             status="0";
         }
 
-
-        Toast.makeText(this, ""+idUsuario, Toast.LENGTH_SHORT).show();
         opc1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

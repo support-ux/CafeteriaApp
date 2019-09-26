@@ -111,6 +111,7 @@ public class AddActivity extends AppCompatActivity {
 
 
 
+
         btnMenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -350,6 +351,7 @@ public class AddActivity extends AppCompatActivity {
                         conexionSQLHelper.agregarProductos(""+Id,nombre,totProducto);
                         Toast.makeText(AddActivity.this,"Pedido Agregado al Carrito",Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(AddActivity.this,MenuActivity.class);
+                        intent.putExtra("ID",idUsuario);
                         intent.putExtra("idVenta",idVenta);
                         startActivity(intent);
                         finish();
