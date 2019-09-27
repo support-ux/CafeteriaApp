@@ -104,6 +104,7 @@ public class ProductosActivity extends AppCompatActivity {
                 });
                 recyclerView.setAdapter(adapterProductos);
                 adapterProductos.notifyDataSetChanged();
+
             }
 
             @Override

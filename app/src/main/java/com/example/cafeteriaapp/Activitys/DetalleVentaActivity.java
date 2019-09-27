@@ -46,7 +46,7 @@ public class DetalleVentaActivity extends AppCompatActivity {
             newString= (String) savedInstanceState.getSerializable("Id");
         }
 
-        Toast.makeText(this, ""+idAlumno, Toast.LENGTH_SHORT).show();
+
 
         recyclerView = findViewById(R.id.listPedidosUsuario);
         layoutManager = new LinearLayoutManager(this);
